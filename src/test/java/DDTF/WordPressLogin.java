@@ -1,5 +1,7 @@
 package DDTF;
 
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import lib.ExcelDataConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +13,8 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class WordPressLogin {
+    Config config= ConfigFactory.load("application.conf");
+    String driverPath=config.getString("driverPath");
 
     //Making WebDriver's global variable//
     WebDriver driver;
@@ -43,7 +47,8 @@ public class WordPressLogin {
         System.out.println(password);
 
         //Providing path of chromedriver//
-        System.setProperty("webdriver.chrome.driver", "src/test/chromedriver_linux64/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "src/test/chromedriver_linux64/chromedriver");
+        System.setProperty("webdriver.chrome.driver", driverPath);
 
         //Opening the chrome browser//
         driver = new ChromeDriver();
