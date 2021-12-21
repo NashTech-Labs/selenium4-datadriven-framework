@@ -81,16 +81,24 @@ TestNG (optional)
 # Steps for execution
 Clone the repository on your local system.
 
+
 Intellij will resolve all the required dependencies.
+
 
 Check your chrome browser version and download the chromedriver accordingly from https://chromedriver.chromium.org/downloads
 
+
 Go to the terminal and execute following commands:
+
 export DRIVER_PATH=/home/knoldus/Downloads/chromedriver_linux64/chromedriver
+
 mvn test -Dtest=WordPressLogin
+
 (Note: in export DRIVER_PATH you will provide the path of chromedriver file in your system)
+
  
 Now the tests will now execute on your machine.
+
 
 We have used a dummy web application and excel test data in this template but you can change it accordingly.
 
