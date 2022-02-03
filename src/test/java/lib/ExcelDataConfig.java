@@ -6,6 +6,7 @@ import org.testng.Reporter;
 import java.io.FileInputStream;
 public class ExcelDataConfig {
     XSSFWorkbook wb;  //Making Global Variable for our workbook//
+
     //Accepting the Excel path through parameter and loading the Excel file//
     public ExcelDataConfig(String excelpath) {
         try {
