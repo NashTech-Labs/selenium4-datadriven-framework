@@ -10,11 +10,14 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
 import java.util.concurrent.TimeUnit;
+
 public class WordPressLogin {
     Config config = ConfigFactory.load("application.conf");
     String driverPath = config.getString("driverPath");
     WebDriver driver;  //Making WebDriver's global variable//
+
     @DataProvider(name = "wordpressData")   //Getting data from Excel sheet//
     public Object[][] passData() {
         ExcelDataConfig config = new ExcelDataConfig("src/test/resources/testdata.xlsx");
@@ -26,6 +29,7 @@ public class WordPressLogin {
         }
         return data;
     }
+
     @Test(dataProvider = "wordpressData")  //Taking data from dataProvider and putting in selenium test//
     public void loginToWordPress(String username, String password) throws InterruptedException {
         Reporter.log(username);
@@ -40,6 +44,7 @@ public class WordPressLogin {
         driver.findElement(By.xpath("//button[contains(text(),'Sign in')]")).click();  //Locating sign in button//
         Thread.sleep(2000);
     }
+
     @AfterMethod  //This tearDown function quits the driver after test executed//
     public void tearDown() {
         driver.quit();

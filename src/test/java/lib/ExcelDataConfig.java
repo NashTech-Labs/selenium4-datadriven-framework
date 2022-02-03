@@ -1,9 +1,12 @@
 package lib;
+
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.Reporter;
+
 import java.io.FileInputStream;
+
 public class ExcelDataConfig {
     XSSFWorkbook wb;  //Making Global Variable for our workbook//
 
@@ -16,6 +19,7 @@ public class ExcelDataConfig {
             Reporter.log(e.getMessage());
         }
     }
+
     //Fetching data from Excel file//
     public String getData(int sheetNumber, int row, int column) {
         XSSFSheet sheet1 = wb.getSheetAt(sheetNumber);
@@ -26,6 +30,7 @@ public class ExcelDataConfig {
         else
             throw new RuntimeException("no value found");
     }
+
     //Reading number of rows in Excel file//
     public int getRowCount(int sheetIndex) {
         int row = wb.getSheetAt(sheetIndex).getLastRowNum();
